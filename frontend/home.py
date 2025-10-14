@@ -1,17 +1,17 @@
 import streamlit as st
 
 # --------------- Configuration de l'onglet ---------------
-st.set_page_config(page_title="Aston Automate", page_icon="frontend/images/Aston_icon.png")
+st.set_page_config(page_title="Aston Automate", page_icon="images/Aston_icon.png")
 
 # --------------- Configuration de la sidebar ---------------
-st.sidebar.image("frontend/images/icon.png")
-st.sidebar.markdown('<div class="sidebar-footer">@ 2025 Aston Automate </div>')
+st.sidebar.image("images/icon.png")
+st.sidebar.markdown('<div class="sidebar-footer">@ 2025 Aston Automate </div>', unsafe_allow_html=True)
 
 # --------------- Configuration de l'en-tête' ---------------
 col1, col2 = st.columns([1, 4])
 
 with col1:
-    st.image("frontend/images/Aston_icon.png")
+    st.image("images/Aston_icon.png")
 with col2:
     st.title("Aston Automate")
 
