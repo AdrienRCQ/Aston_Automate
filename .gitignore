@@ -1,0 +1,9 @@
+# Fichiers python compilés
+__pycache__/
+*.py[cod]
+
+# Cache vscode
+.vscode/
+
+# Venv files
+venv/*
