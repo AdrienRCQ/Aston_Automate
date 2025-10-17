@@ -1,10 +1,24 @@
+"""
+***** Aston Automate *****
+Auteur : Adrien RICQUE
+Date de création : 14/10/2025
+
+Description : Frontend via Streamlit
+Page : Home (Principale)
+"""
+
 import streamlit as st
+from Tools.streamlit_app_core import *
 
 # --------------- Configuration de l'onglet ---------------
 st.set_page_config(page_title="Aston Automate", page_icon="images/Aston_icon.png")
 
 # --------------- Configuration de la sidebar ---------------
 st.sidebar.image("images/icon.png")
+st.sidebar.markdown("---")
+
+exit_app = st.sidebar.button("❌ Shut Down")
+relaunch_app = st.sidebar.button("🔄 Reboot")
 st.sidebar.markdown('<div class="sidebar-footer">@ 2025 Aston Automate </div>', unsafe_allow_html=True)
 
 # --------------- Configuration de l'en-tête' ---------------
@@ -26,3 +40,10 @@ Cet outil a pour but de simplifier la gestion du quotidien :
             
 
             """, unsafe_allow_html=True)
+
+
+if exit_app:
+    shutdown_app()
+
+if relaunch_app:
+    reboot_app()

@@ -7,3 +7,14 @@ __pycache__/
 
 # Venv files
 venv/*
+
+# Databases files :
+backend/instance/*
+*.db
+data/*
+
+# fichier de rollback :
+*.bak
+
+# fichiers .env :
+*.env

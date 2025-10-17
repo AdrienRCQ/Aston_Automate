@@ -4,3 +4,6 @@ flask_cors
 streamlit
 requests
 pandas
+psutil
+keyboard
+dotenv
