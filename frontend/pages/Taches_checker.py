@@ -62,7 +62,7 @@ elif menu == "Voir les tâches":
     if res.status_code == 200:
         tasks = res.json()
         for t in tasks:
-            st.write(f"{t["id"]} - **{t["title"]}** — échéance : {t["due_date"]}")
+            st.write(t["id"],"-- **",t["title"],"** — échéance : ",t["due_date"])
             st.caption(t["description"])
 
 

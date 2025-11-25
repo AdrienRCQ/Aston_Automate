@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3 as bdd
 from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
@@ -13,7 +13,7 @@ TOKEN = getenv('MAIL_TOKEN')
 
 def send_email(to, subject, body):
     msg = MIMEText(body)
-    msg['From'] = "ton_email@gmail.com"
+    msg['From'] = LOGIN
     msg['To'] = to
     msg['Subject'] = subject
 
@@ -22,19 +22,20 @@ def send_email(to, subject, body):
         server.send_message(msg)
 
 def check_tasks():
-    conn = sqlite3.connect('aston_automate.db')
+    conn = bdd.connect('aston_automate.db')
     c = conn.cursor()
-    c.execute("SELECT id, title, due_date, email FROM tasks WHERE notified=0")
+    c.execute("SELECT * FROM tasks")
     tasks = c.fetchall()
 
     now = datetime.now()
 
     for task in tasks:
-        task_id, title, due_date, email = task
+        title = task[1]
+        due_date = task[3]
+        email = task[4]
         due = datetime.fromisoformat(due_date)
         if due < now:
             send_email(email, f"Tâche en retard : {title}", f"La tâche '{title}' était prévue pour le {due_date}.")
-            c.execute("UPDATE tasks SET notified=1 WHERE id=?", (task_id,))
 
     conn.commit()
     conn.close()
