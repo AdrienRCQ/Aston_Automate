@@ -12,9 +12,12 @@ venv/*
 backend/instance/*
 *.db
 data/*
+*.sql
 
 # fichier de rollback :
 *.bak
 
-# fichiers .env :
+# fichiers de config :
 *.env
+*.conf
+*.sh
