@@ -6,20 +6,18 @@ Date de création : 14/10/2025
 Description : Frontend via Streamlit
 Page : Home (Principale)
 """
-
-import streamlit as st
+# Import modules :
 from Tools.streamlit_app_core import *
+# Import component :
+from components.GUI_components import sidebar_loader
+# Import librairies :
+import streamlit as st
 
 # --------------- Configuration de l'onglet ---------------
 st.set_page_config(page_title="Aston Automate", page_icon="images/Aston_icon.png")
 
 # --------------- Configuration de la sidebar ---------------
-st.sidebar.image("images/icon.png")
-st.sidebar.markdown("---")
-
-exit_app = st.sidebar.button("❌ Shut Down")
-relaunch_app = st.sidebar.button("🔄 Reboot")
-st.sidebar.markdown('<div class="sidebar-footer">@ 2025 Aston Automate </div>', unsafe_allow_html=True)
+sidebar_loader()
 
 # --------------- Configuration de l'en-tête' ---------------
 col1, col2 = st.columns([1, 4])
@@ -41,9 +39,3 @@ Cet outil a pour but de simplifier la gestion du quotidien :
 
             """, unsafe_allow_html=True)
 
-
-if exit_app:
-    shutdown_app()
-
-if relaunch_app:
-    reboot_app()
