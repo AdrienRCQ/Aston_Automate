@@ -21,3 +21,4 @@ data/*
 *.env
 *.conf
 *.sh
+*.yaml
